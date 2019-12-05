@@ -29,13 +29,13 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - dynamodb: DescribeTable
-        - dynamodb: Query
-        - dynamodb: Scan
-        - dynamodb: GetItem
-        - dynamodb: PutItem
-        - dynamodb: UpdateItem
-        - dynamodb: DeleteItem
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:ap-southeast-1:*:*"
 
 functions:
@@ -87,5 +87,6 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
+# Create our resources with separate CloudFormation templates
 resources:
   - ${file(resources/api-gateway-errors.yml)}
